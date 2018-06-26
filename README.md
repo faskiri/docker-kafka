@@ -14,6 +14,7 @@ in the same container. This means:
 
 * No dependency on an external Zookeeper host, or linking to another container
 * Zookeeper and Kafka are configured to work together out of the box
+* To do setup (e.g. create a topic) you can put a script named /docker-entrypoint-initdb.d/init-user-kafka.sh in the image
 
 Run
 ---

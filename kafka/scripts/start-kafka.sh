@@ -71,5 +71,11 @@ if [ ! -z "$AUTO_CREATE_TOPICS" ]; then
     echo "auto.create.topics.enable=$AUTO_CREATE_TOPICS" >> $KAFKA_HOME/config/server.properties
 fi
 
+# Kafka init script
+if [ -e /docker-entrypoint-initdb.d/init-user-kafka.sh ]
+then
+  /docker-entrypoint-initdb.d/init-user-kafka.sh
+fi
+
 # Run Kafka
 $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
